@@ -1,0 +1,24 @@
+{
+  "name": "practicing-node",
+  "version": "1.0.0",
+  "description": "practicing node vanilla",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/sever.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mochito420/Practicing-Node.js.git"
+  },
+  "author": "Ricardo Leiva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mochito420/Practicing-Node.js/issues"
+  },
+  "homepage": "https://github.com/mochito420/Practicing-Node.js#readme",
+  "devDependencies": {
+    "nodemon": "3.1.4"
+  }
+}
