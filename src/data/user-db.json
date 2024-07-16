@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "fullname": "Jose Castro",
+      "username": "elpepon2008",
+      "password": "123456",
+      "id": 0,
+      "createAdd": "2024-07-16T00:14:43.118Z"
+    },
+    {
+      "fullname": "Ricardo Leiva",
+      "username": "richad420",
+      "password": "123456",
+      "id": 1,
+      "createAdd": "2024-07-16T00:16:05.852Z"
+    },
+    {
+      "fullname": "Marcos castro",
+      "username": "marquitoxCapo",
+      "password": "123456",
+      "id": 2,
+      "createAdd": "2024-07-16T00:16:35.866Z"
+    },
+    {
+      "fullname": "Jorge Castro",
+      "username": "castrojorge",
+      "password": "123456",
+      "id": 3,
+      "createAdd": "2024-07-16T01:32:21.299Z"
+    },
+    {
+      "fullname": "armando",
+      "username": "armandojorge",
+      "password": "123456",
+      "id": 4,
+      "createAdd": "2024-07-16T01:32:53.597Z"
+    },
+    {
+      "fullname": "John Doe",
+      "username": "johndoe",
+      "password": "mypassword",
+      "id": 5,
+      "createAdd": "2024-07-16T01:42:03.845Z"
+    },
+    {
+      "fullname": "Jorge Castro",
+      "username": "oje",
+      "password": "123456",
+      "id": 6,
+      "createAdd": "2024-07-16T01:42:49.247Z"
+    }
+  ]
+}

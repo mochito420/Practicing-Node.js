@@ -1,0 +1,12 @@
+GET http://localhost:9000/users
+
+###
+POST http://localhost:9000/users
+Content-Type: application/json
+
+{
+    "fullname": "Jorge Castro",
+    "username": "oje",
+    "password": "123456"
+}
+
