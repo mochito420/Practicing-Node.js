@@ -1,53 +1,25 @@
 {
   "users": [
     {
-      "fullname": "Jose Castro",
-      "username": "elpepon2008",
-      "password": "123456",
-      "id": 0,
-      "createAdd": "2024-07-16T00:14:43.118Z"
-    },
-    {
-      "fullname": "Ricardo Leiva",
-      "username": "richad420",
-      "password": "123456",
-      "id": 1,
-      "createAdd": "2024-07-16T00:16:05.852Z"
-    },
-    {
-      "fullname": "Marcos castro",
-      "username": "marquitoxCapo",
-      "password": "123456",
-      "id": 2,
-      "createAdd": "2024-07-16T00:16:35.866Z"
-    },
-    {
-      "fullname": "Jorge Castro",
-      "username": "castrojorge",
-      "password": "123456",
-      "id": 3,
-      "createAdd": "2024-07-16T01:32:21.299Z"
-    },
-    {
-      "fullname": "armando",
-      "username": "armandojorge",
-      "password": "123456",
-      "id": 4,
-      "createAdd": "2024-07-16T01:32:53.597Z"
-    },
-    {
       "fullname": "John Doe",
       "username": "johndoe",
-      "password": "mypassword",
-      "id": 5,
-      "createAdd": "2024-07-16T01:42:03.845Z"
+      "password": "$2b$10$CHgtJz2I.kgD.kNM72bpReFfTBgXHZOBynV6NmQGVfNsf1GQYKDgm",
+      "id": "9e60ed49-4eb7-4a2c-8481-af906e5d05a1",
+      "createAdd": "2024-07-17"
     },
     {
-      "fullname": "Jorge Castro",
-      "username": "oje",
-      "password": "123456",
-      "id": 6,
-      "createAdd": "2024-07-16T01:42:49.247Z"
+      "fullname": "Jane Smith",
+      "username": "janesmith",
+      "password": "$2b$10$FG5jaCH.msFmL2B.bUBPKOr.CqwGUej59.OcPdqfn0o.drxQYy5kW",
+      "id": "94dba01a-3826-4845-82c3-e5ad549473c8",
+      "createAdd": "2024-07-17"
+    },
+    {
+      "fullname": "Michael Johnson",
+      "username": "michaelj",
+      "password": "$2b$10$3BH8qsvCULFZV15Av7gFfuI0MkBKaAV4.xwjfc6TbMxodWcKi4N8i",
+      "id": "e9dd6934-8710-48d7-b5ce-e04d6391c110",
+      "createAdd": "2024-07-17"
     }
   ]
 }

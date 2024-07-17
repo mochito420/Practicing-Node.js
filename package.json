@@ -20,5 +20,9 @@
   "homepage": "https://github.com/mochito420/Practicing-Node.js#readme",
   "devDependencies": {
     "nodemon": "3.1.4"
+  },
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "uuid": "10.0.0"
   }
 }
