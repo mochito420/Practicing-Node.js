@@ -20,6 +20,20 @@
       "password": "$2b$10$3BH8qsvCULFZV15Av7gFfuI0MkBKaAV4.xwjfc6TbMxodWcKi4N8i",
       "id": "e9dd6934-8710-48d7-b5ce-e04d6391c110",
       "createAdd": "2024-07-17"
+    },
+    {
+      "fullname": "Ricardo Leiva",
+      "username": "richard2002",
+      "password": "$2b$10$pZ7YB6Fv5By2M23v2QtkhOK.ngcBGAaj3BcFGHjOmO9H2wWiCYJme",
+      "id": "d2808e0a-db20-456a-bb99-9d4f3bd38c23",
+      "createAdd": "2024-07-18"
+    },
+    {
+      "fullname": "Richard Doe",
+      "username": "doerichard",
+      "password": "$2b$10$jeOrBYGuLfwpqs/14ho95OEv.x162A3s04hwQ3V60UIXuwY6XTfYS",
+      "id": "da5f63ce-fabc-4de7-9394-927ced28e0c0",
+      "createAdd": "2024-07-18"
     }
   ]
 }
