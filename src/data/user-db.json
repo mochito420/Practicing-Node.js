@@ -34,6 +34,13 @@
       "password": "$2b$10$jeOrBYGuLfwpqs/14ho95OEv.x162A3s04hwQ3V60UIXuwY6XTfYS",
       "id": "da5f63ce-fabc-4de7-9394-927ced28e0c0",
       "createAdd": "2024-07-18"
+    },
+    {
+      "fullname": "Juan Doe",
+      "username": "doejuan89",
+      "password": "$2b$10$k/YvowOCeOJNhIVXCXedQuwwLTnuj3.WkRo7y7QQyux4XNTSoLUEm",
+      "id": "a9c4c8a4-625e-4f9f-8764-03a1a8f61135",
+      "createAdd": "2024-07-19"
     }
   ]
 }

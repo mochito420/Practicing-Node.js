@@ -10,6 +10,10 @@ export class UsersModel {
       throw new Error("this username alredy exist");
     }
 
+    if(input.username === ""|| input.fullname === "" || input.password === ""){
+      throw new Error("inputs are empty")
+    }
+
     if (input.password.length < 6) {
       throw new Error("password has to be 6 or more characters");
     }
