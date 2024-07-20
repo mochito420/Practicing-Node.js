@@ -2,7 +2,7 @@ import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../routes/json-middelware.js";
 
 export class UsersController {
-  static async createUsers(req, res) {
+  static async signupUsers(req, res) {
     jsonMiddelware(req, res, async () => {
       const input = req.body;
 
@@ -15,6 +15,7 @@ export class UsersController {
         res.end(JSON.stringify({ message: "you have to fill the filds" }));
         return;
       }
+
       try {
         const newUser = await UsersModel.createUsers({ input });
 
@@ -22,7 +23,8 @@ export class UsersController {
         res.end(JSON.stringify({ message: "new user was created", newUser }));
       } catch (error) {
         res.writeHead(400, { "content-type": "application/json" });
-        res.end(JSON.stringify(error.message));
+        res.end(JSON.stringify({message: error.message}));
+        console.log(error.message);
       }
     });
   }

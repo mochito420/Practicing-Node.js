@@ -48,18 +48,37 @@ export class SignUp extends HTMLElement {
         return;
       }
 
-      const newUserData = { fullName, userName, password };
+      const newUserData = {
+        fullname: fullName,
+        username: userName,
+        password: password,
+      };
       console.log(newUserData);
 
-      fetch("http://localhost:9000/users", {
+      fetch("http://localhost:9000/api/users", {
         method: "POST",
         body: JSON.stringify(newUserData),
         headers: { "content-type": "application/json" },
       })
-        .then((res) => res.json())
-        .then((response) => console.log(`the fetch response: ${response}`))
+        .then((res) =>
+          res.json().then((data) => ({ status: res.status, body: data }))
+        )
+        .then((response) => {
+          if (response.status >= 400) {
+            const message = response.body.message;
+            if (message.includes("username")) {
+              this.errorsMessage(userNameInput, message);
+            } else if (message.includes("password")) {
+              this.errorsMessage(passwordInput, message);
+            } else {
+              console.error(`unknown erro: ${message}`);
+            }
+          } else {
+            console.log(`the fetch response: ${JSON.stringify(response)}`);
+          }
+        })
         .catch((error) => {
-          console.error("error", error);          
+          console.error(`Feth error: ${error.message}`);
         });
     });
   }
@@ -166,7 +185,6 @@ export class SignUp extends HTMLElement {
           font-size: .8rem;
           color: red;
           position: relative;
-          right: 40px;
         }
     `;
   }

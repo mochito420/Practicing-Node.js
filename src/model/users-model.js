@@ -15,7 +15,7 @@ export class UsersModel {
     }
 
     if (input.password.length < 6) {
-      throw new Error("password has to be 6 or more characters");
+      throw new Error("password to short");
     }
 
     if (input.username.includes(" ")) {

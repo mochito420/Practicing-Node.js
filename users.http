@@ -1,11 +1,12 @@
 GET http://localhost:9000/users
 
 ###
-POST http://localhost:9000/users
+POST http://localhost:9000/api/users
 Content-Type: application/json
 
-{
-    "password": "18062002",
-    "username": "doeMaurito"
+{   
+    "fullname": "John Doe",
+    "password": "123456",
+    "username": "johndoe"
 }
 

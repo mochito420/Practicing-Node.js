@@ -41,6 +41,13 @@
       "password": "$2b$10$k/YvowOCeOJNhIVXCXedQuwwLTnuj3.WkRo7y7QQyux4XNTSoLUEm",
       "id": "a9c4c8a4-625e-4f9f-8764-03a1a8f61135",
       "createAdd": "2024-07-19"
+    },
+    {
+      "fullname": "Jane Doe",
+      "username": "janedoe",
+      "password": "$2b$10$WTCzeOnBmS3Ljbu84qJaN.Vxf7qmNYwZz7yeASGTu92RWK8oiyhDi",
+      "id": "b622c5d3-683f-4e81-97ca-c4489f168484",
+      "createAdd": "2024-07-20"
     }
   ]
 }
