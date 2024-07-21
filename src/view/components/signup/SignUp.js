@@ -33,14 +33,17 @@ export class SignUp extends HTMLElement {
 
       if (!fullName) {
         this.errorsMessage(fullNameInput, "Full Name is required");
+        this.inputOnError(fullNameInput);
         hasError = true;
       }
       if (!userName) {
         this.errorsMessage(userNameInput, "User Name is required");
+        this.inputOnError(userNameInput);
         hasError = true;
       }
       if (!password) {
         this.errorsMessage(passwordInput, "Password is required");
+        this.inputOnError(passwordInput);
         hasError = true;
       }
 
@@ -68,8 +71,10 @@ export class SignUp extends HTMLElement {
             const message = response.body.message;
             if (message.includes("username")) {
               this.errorsMessage(userNameInput, message);
+              this.inputOnError(userNameInput);
             } else if (message.includes("password")) {
               this.errorsMessage(passwordInput, message);
+              this.inputOnError(passwordInput);
             } else {
               console.error(`unknown error: ${message}`);
             }
@@ -88,14 +93,26 @@ export class SignUp extends HTMLElement {
       ".container__error-input"
     );
     errorElements.forEach((error) => error.remove());
+
+    const inputOnError = this.shadowRoot.querySelectorAll(
+      ".container__input-error"
+    );
+    inputOnError.forEach((input) => {
+      input.classList.remove("container__input");
+    });
   }
 
   errorsMessage(inputElement, message) {
     const errorElement = document.createElement("div");
     errorElement.className = "container__error-input";
     errorElement.innerHTML = `${message}`;
+
     const parentElement = inputElement.parentNode;
     parentElement.insertBefore(errorElement, inputElement.nextSibling);
+  }
+
+  inputOnError(inputElement) {
+    inputElement.classList.add("container__input-error");
   }
 
   render() {
@@ -185,6 +202,12 @@ export class SignUp extends HTMLElement {
           font-size: .8rem;
           color: red;
           position: relative;
+        }
+        .container__input-error:hover,
+        .container__input-error:focus{
+            border:2px solid #ec4a4a;
+            box-shadow: 0px 0px 0px 7px rgb(236 74 74 / 20%);
+            background-color: white;
         }
     `;
   }

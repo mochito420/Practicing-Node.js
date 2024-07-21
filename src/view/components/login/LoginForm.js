@@ -83,6 +83,7 @@ export class LoginForm extends HTMLElement {
       ".container__error-input"
     );
     errorElements.forEach((error) => error.remove());
+
     const inputOnError = this.shadowRoot.querySelectorAll(
       ".container__input-error"
     );
@@ -95,6 +96,7 @@ export class LoginForm extends HTMLElement {
     const errorElement = document.createElement("div");
     errorElement.className = "container__error-input";
     errorElement.innerHTML = `${message}`;
+    
     const parentElement = inputElement.parentNode;
     parentElement.insertBefore(errorElement, inputElement.nextSibling);
   }
