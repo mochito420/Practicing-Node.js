@@ -1,18 +1,16 @@
-import { SignUp } from "./components/signup/SignUp.js";
+import { SignupForm } from "./components/signup/SignupForm.js";
 import { LoginForm } from "./components/login/LoginForm.js";
-
-
 
 
 addEventListener("DOMContentLoaded", () => {
   console.log("page was loaded succesfully");
-  const app = document.querySelector(".app")
+  const app = document.querySelector("body")
   const path = window.location.pathname
 
   if(path.startsWith("/signup")){
-    app.innerHTML = "<sign-up><sign-up>"
+    app.innerHTML = "<signup-form></signup-form>"
   } else if(path.startsWith("/login")){
-    app.innerHTML = "<login-form><login-form>"
+    app.innerHTML = "<login-form></login-form>"
   }
 });
 

@@ -96,7 +96,7 @@ export class LoginForm extends HTMLElement {
     const errorElement = document.createElement("div");
     errorElement.className = "container__error-input";
     errorElement.innerHTML = `${message}`;
-    
+
     const parentElement = inputElement.parentNode;
     parentElement.insertBefore(errorElement, inputElement.nextSibling);
   }
@@ -117,6 +117,9 @@ export class LoginForm extends HTMLElement {
                 
                 <button type="submit" class="container__button">login</button>
             </form>
+            <section container__section>
+                <p class="container__p">You are not signup? <a href="http://localhost:9000/signup" class="container__a">signup</a> </p>
+            </section>
         </div>
     `;
   }
@@ -186,6 +189,11 @@ export class LoginForm extends HTMLElement {
         .container__button:focus{
             border:2px solid #4A9DEC;
             box-shadow: 0px 0px 0px 7px rgb(74, 157,236, 20%);
+        }
+        .container__a{
+          font-weight: bold;
+          color: #0066ff;
+          transition: color .3s ease;
         }
         .container__error-input{
             font-size:.8rem;

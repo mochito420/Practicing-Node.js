@@ -1,4 +1,4 @@
-export class SignUp extends HTMLElement {
+export class SignupForm extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -120,7 +120,7 @@ export class SignUp extends HTMLElement {
         <style>${this.styles()}</style>
         <div class='container'>
             <h2 class="container__h1">Signup</h2>
-            <p class="container__p">you are not registred yet?</p>
+            <p class="container__p">You are not registred yet?</p>
             <form class="container__Form">
                 <input type="text" class="container__input container__input-fullname" placeholder="Full Name">
                 <input type="text" class="container__input container__input-username" placeholder="User Name">
@@ -128,6 +128,10 @@ export class SignUp extends HTMLElement {
                 
                 <button type="submit" class="container__button">Sing Up</button>
             </form>
+            <section container__section>
+                <p class="container__p">Are you alredy signup? <a href="http://localhost:9000/login" class="container__a">Login</a> </p>
+            </section>
+
         </div>
     `;
   }
@@ -143,6 +147,7 @@ export class SignUp extends HTMLElement {
             flex-direction: column;
             border-radius:10px;
             padding:10px;
+            cursor:default;
         }
         .container__h1{
             margin:0;
@@ -154,7 +159,7 @@ export class SignUp extends HTMLElement {
             margin:0;
             padding:10px;
             font-size:1rem;
-            color:#666
+            color:#666;
         }
         .container__form{
             display: flex;
@@ -198,6 +203,12 @@ export class SignUp extends HTMLElement {
           border:2px solid #4A9DEC;
           box-shadow: 0px 0px 0px 7px rgb(74, 157,236, 20%);
         }
+        .container__a{
+          font-weight: bold;
+          color: #0066ff;
+          transition: color .3s ease;
+        }
+        }
         .container__error-input{
           font-size: .8rem;
           color: red;
@@ -213,4 +224,4 @@ export class SignUp extends HTMLElement {
   }
 }
 
-customElements.define("sign-up", SignUp);
+customElements.define("signup-form", SignupForm);
