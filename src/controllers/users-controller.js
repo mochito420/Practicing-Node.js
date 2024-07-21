@@ -1,3 +1,4 @@
+import url from "url";
 import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../utils/json-middelware.js";
 
@@ -49,5 +50,15 @@ export class UsersController {
         res.end(JSON.stringify({ message: error.message }));
       }
     });
+  }
+  static async userInfo(req, res) {
+    const urlParams = url.parse(req.url, true).query;
+    const { id } = urlParams;
+    console.log(id);
+
+    const userInfoByID = await UsersModel.getUser({ id: id });
+
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(JSON.stringify({ message: "user was found", user: userInfoByID }));
   }
 }

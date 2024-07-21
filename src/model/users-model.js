@@ -62,8 +62,20 @@ export class UsersModel {
       if (!matchPassword) {
         throw new Error("invalid password");
       }
-
     }
     return { input };
+  }
+  static async getUser({ id }) {
+    const dataBase = await checkDatabase();
+
+    if (dataBase.users) {
+      const userInfoByID = dataBase.users.find((user) => user.id === id);
+
+      if (!userInfoByID) {
+        return `user whit ID: ${id} was not found`;
+      } else {
+        return userInfoByID;
+      }
+    }
   }
 }
