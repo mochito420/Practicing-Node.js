@@ -11,13 +11,13 @@ export class FileHandler {
   static async serveStaticFile(req, res) {
     if (req.method === "GET") {
       const reqPath = url.parse(req.url, true).pathname;
-      const filePath = path.join(
-        __dirname,
-        "../view",
-        reqPath === "/signup" ? "index.html" : req.url
-      );
+      const filePath = path.join(__dirname, "../view", reqPath);
 
       console.log(`serving file: ${filePath}`);
+
+      if(fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()){
+        filePath = path.join(filePath, "index.html")
+      }
 
       fs.readFile(filePath, (err, data) => {
         if (err) {

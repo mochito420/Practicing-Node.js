@@ -1,5 +1,5 @@
 import { UsersModel } from "../model/users-model.js";
-import { jsonMiddelware } from "../routes/json-middelware.js";
+import { jsonMiddelware } from "../utils/json-middelware.js";
 
 export class UsersController {
   static async signupUser(req, res) {
