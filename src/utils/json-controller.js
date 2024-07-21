@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const filePath = path.join(__dirname, "../data", "user-db.json");
 
-export async function readData() {
+export async function checkDatabase() {
   try {
     const data = await fs.readFile(filePath, "utf-8");
     return JSON.parse(data);
@@ -16,7 +16,7 @@ export async function readData() {
   }
 }
 
-export async function writeData(data) {
+export async function updateDatabase(data) {
   try {
     await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
   } catch (error) {

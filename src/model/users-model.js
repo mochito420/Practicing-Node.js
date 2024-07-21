@@ -1,17 +1,21 @@
-import { readData, writeData } from "../utils/json-controller.js";
+import { checkDatabase, updateDatabase } from "../utils/json-controller.js";
 import { v4 as uuidv4 } from "uuid";
 import bcry from "bcrypt";
 
 export class UsersModel {
-  static async createUsers({ input }) {
-    const altuasData = await readData();
+  static async registerUser({ input }) {
+    const dataBase = await checkDatabase();
 
-    if (altuasData.users.some((user) => user.username === input.username)) {
+    if (dataBase.users.some((user) => user.username === input.username)) {
       throw new Error("this username alredy exist");
     }
 
-    if(input.username === ""|| input.fullname === "" || input.password === ""){
-      throw new Error("inputs are empty")
+    if (
+      input.username === "" ||
+      input.fullname === "" ||
+      input.password === ""
+    ) {
+      throw new Error("inputs are empty");
     }
 
     if (input.password.length < 6) {
@@ -22,11 +26,11 @@ export class UsersModel {
       throw new Error("username should not have spaces");
     }
 
-    if (altuasData.users) {
+    if (dataBase.users) {
       const saltRounds = 10;
       const hashedPassword = await bcry.hash(input.password, saltRounds);
 
-      altuasData.users.push({
+      dataBase.users.push({
         fullname: input.fullname,
         username: input.username,
         password: hashedPassword,
@@ -34,7 +38,31 @@ export class UsersModel {
         createAdd: new Date().toISOString().split("T")[0],
       });
 
-      await writeData(altuasData);
+      await updateDatabase(dataBase);
+    }
+    return { input };
+  }
+  static async loginUser({ input }) {
+    const dataBase = await checkDatabase();
+
+    if (dataBase.users) {
+      const matchUser = dataBase.users.find(
+        (user) => user.username === input.username
+      );
+
+      if (!matchUser) {
+        throw new Error("invalid username");
+      }
+
+      const matchPassword = await bcry.compare(
+        input.password,
+        matchUser.password
+      );
+
+      if (!matchPassword) {
+        throw new Error("invalid password");
+      }
+
     }
     return { input };
   }

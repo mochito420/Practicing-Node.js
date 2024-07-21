@@ -5,9 +5,9 @@ export function usersRouter(req, res) {
   const reqPath = url.parse(req.url, true).pathname;
   const reqMethod = req.method;
 
-  if (reqPath === "/api/users" && reqMethod === "GET") {
-    UsersController.getAllUsers(req, res);
-  } else if (reqPath === "/api/users" && reqMethod === "POST") {
-    UsersController.signupUsers(req, res);
-  } 
+  if (reqPath === "/api/users/login" && reqMethod === "POST") {
+    UsersController.loginUser(req, res);
+  } else if (reqPath === "/api/users/signup" && reqMethod === "POST") {
+    UsersController.signupUser(req, res);
+  }
 }

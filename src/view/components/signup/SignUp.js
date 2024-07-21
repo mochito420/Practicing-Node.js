@@ -55,7 +55,7 @@ export class SignUp extends HTMLElement {
       };
       console.log(newUserData);
 
-      fetch("http://localhost:9000/api/users", {
+      fetch("http://localhost:9000/api/users/signup", {
         method: "POST",
         body: JSON.stringify(newUserData),
         headers: { "content-type": "application/json" },
@@ -71,7 +71,7 @@ export class SignUp extends HTMLElement {
             } else if (message.includes("password")) {
               this.errorsMessage(passwordInput, message);
             } else {
-              console.error(`unknown erro: ${message}`);
+              console.error(`unknown error: ${message}`);
             }
           } else {
             console.log(`the fetch response: ${JSON.stringify(response)}`);
@@ -90,12 +90,12 @@ export class SignUp extends HTMLElement {
     errorElements.forEach((error) => error.remove());
   }
 
-  errorsMessage(inputElemnt, message) {
+  errorsMessage(inputElement, message) {
     const errorElement = document.createElement("div");
     errorElement.className = "container__error-input";
     errorElement.innerHTML = `${message}`;
-    const parentElement = inputElemnt.parentNode;
-    parentElement.insertBefore(errorElement, inputElemnt.nextSibling);
+    const parentElement = inputElement.parentNode;
+    parentElement.insertBefore(errorElement, inputElement.nextSibling);
   }
 
   render() {
