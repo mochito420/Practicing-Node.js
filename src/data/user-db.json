@@ -1,53 +1,12 @@
 {
   "users": [
     {
-      "fullname": "John Doe",
-      "username": "johndoe",
-      "password": "$2b$10$CHgtJz2I.kgD.kNM72bpReFfTBgXHZOBynV6NmQGVfNsf1GQYKDgm",
-      "id": "9e60ed49-4eb7-4a2c-8481-af906e5d05a1",
-      "createAdd": "2024-07-17"
-    },
-    {
-      "fullname": "Jane Smith",
-      "username": "janesmith",
-      "password": "$2b$10$FG5jaCH.msFmL2B.bUBPKOr.CqwGUej59.OcPdqfn0o.drxQYy5kW",
-      "id": "94dba01a-3826-4845-82c3-e5ad549473c8",
-      "createAdd": "2024-07-17"
-    },
-    {
-      "fullname": "Michael Johnson",
-      "username": "michaelj",
-      "password": "$2b$10$3BH8qsvCULFZV15Av7gFfuI0MkBKaAV4.xwjfc6TbMxodWcKi4N8i",
-      "id": "e9dd6934-8710-48d7-b5ce-e04d6391c110",
-      "createAdd": "2024-07-17"
-    },
-    {
-      "fullname": "Ricardo Leiva",
-      "username": "richard2002",
-      "password": "$2b$10$pZ7YB6Fv5By2M23v2QtkhOK.ngcBGAaj3BcFGHjOmO9H2wWiCYJme",
-      "id": "d2808e0a-db20-456a-bb99-9d4f3bd38c23",
-      "createAdd": "2024-07-18"
-    },
-    {
-      "fullname": "Richard Doe",
-      "username": "doerichard",
-      "password": "$2b$10$jeOrBYGuLfwpqs/14ho95OEv.x162A3s04hwQ3V60UIXuwY6XTfYS",
-      "id": "da5f63ce-fabc-4de7-9394-927ced28e0c0",
-      "createAdd": "2024-07-18"
-    },
-    {
-      "fullname": "Juan Doe",
-      "username": "doejuan89",
-      "password": "$2b$10$k/YvowOCeOJNhIVXCXedQuwwLTnuj3.WkRo7y7QQyux4XNTSoLUEm",
-      "id": "a9c4c8a4-625e-4f9f-8764-03a1a8f61135",
-      "createAdd": "2024-07-19"
-    },
-    {
-      "fullname": "Jane Doe",
-      "username": "janedoe",
-      "password": "$2b$10$WTCzeOnBmS3Ljbu84qJaN.Vxf7qmNYwZz7yeASGTu92RWK8oiyhDi",
-      "id": "b622c5d3-683f-4e81-97ca-c4489f168484",
-      "createAdd": "2024-07-20"
+      "fullname": "New User",
+      "username": "newuser",
+      "password": "$2b$10$IGinDRBwmcFOxg0/kMlS9e5GKIUJy39gIYQOU.ye0jAbf26tH9q2K",
+      "id": "2531430f-dd7e-4c4b-871b-862c56cbf7a3",
+      "createAdd": "2024-07-23",
+      "profilepic": "https://avatar.iran.liara.run/public/27"
     }
   ]
 }

@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../utils/json-middelware.js";
 
-dotenv.config()
+dotenv.config();
 
 export class UsersController {
   static async signupUser(req, res) {
@@ -68,6 +68,14 @@ export class UsersController {
         res.end(JSON.stringify({ message: error.message }));
       }
     });
+  }
+  static async logoutUser(req, res) {
+    const userLogout = UsersModel(req, res);
+
+    res.writeHead(200, { "content-type": "application/json" });
+    res.end(
+      JSON.stringify({ message: "user logout succesfully", user: userLogout })
+    );
   }
   static async userInfo(req, res) {
     const urlParams = url.parse(req.url, true).query;

@@ -1,3 +1,5 @@
 node_modules
 .env
 generate-token.js
+file-handler.js
+ProfileCard.js

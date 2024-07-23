@@ -1,4 +1,4 @@
-GET http://localhost:9000/api/users/info?id=9e60ed49-4eb7-4a2c-8481-af906e5d05a1
+GET http://localhost:9000/api/users/info?id=2531430f-dd7e-4c4b-871b-862c56cbf7a3
 
 ###
 POST http://localhost:9000/api/users/signup

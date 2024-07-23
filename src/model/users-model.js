@@ -26,6 +26,8 @@ export class UsersModel {
       throw new Error("username should not have spaces");
     }
 
+    const profilePic = "https://avatar.iran.liara.run/public";
+
     if (dataBase.users) {
       const saltRounds = 10;
       const hashedPassword = await bcry.hash(input.password, saltRounds);
@@ -36,6 +38,7 @@ export class UsersModel {
         password: hashedPassword,
         id: uuidv4(),
         createAdd: new Date().toISOString().split("T")[0],
+        profilepic: profilePic,
       });
 
       await updateDatabase(dataBase);
@@ -64,6 +67,11 @@ export class UsersModel {
       }
     }
     return { input };
+  }
+  static async logoutUser(req, res) {
+    req.session = null;
+
+    res.serHeader("set-cookie", "sesion=; max-age=0; path=/")
   }
   static async getUser({ id }) {
     const dataBase = await checkDatabase();

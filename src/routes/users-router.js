@@ -9,7 +9,9 @@ export function usersRouter(req, res) {
     UsersController.loginUser(req, res);
   } else if (reqPath === "/api/users/signup" && reqMethod === "POST") {
     UsersController.signupUser(req, res);
-  } else if (reqPath === "/api/users/info" && reqMethod === "GET") {
+  } else if(reqPath === "/api/user/logout"){
+    UsersController.logOut(req, res)
+  }else if (reqPath === "/api/users/info" && reqMethod === "GET") {
     UsersController.userInfo(req,res)
   }
 }

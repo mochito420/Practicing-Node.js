@@ -13,10 +13,8 @@ export class FileHandler {
       const reqPath = url.parse(req.url, true).pathname;
       const filePath = path.join(__dirname, "../view", reqPath);
 
-      console.log(`serving file: ${filePath}`);
-
-      if(fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()){
-        filePath = path.join(filePath, "index.html")
+      if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+        filePath = path.join(filePath, "index.html");
       }
 
       fs.readFile(filePath, (err, data) => {
