@@ -1,6 +1,10 @@
 import url from "url";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../utils/json-middelware.js";
+
+dotenv.config()
 
 export class UsersController {
   static async signupUser(req, res) {
@@ -20,7 +24,14 @@ export class UsersController {
       try {
         const newUser = await UsersModel.registerUser({ input });
 
-        res.writeHead(201, { "content-type": "application/json" });
+        const token = jwt.sign({ userID: newUser.id }, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        res.writeHead(201, {
+          "content-type": "application/json",
+          "Set-Cookie": `token=${token}; HttpOnly`,
+        });
         res.end(JSON.stringify({ message: "new user was created", newUser }));
       } catch (error) {
         res.writeHead(400, { "content-type": "application/json" });
@@ -43,7 +54,14 @@ export class UsersController {
       try {
         const logUser = await UsersModel.loginUser({ input });
 
-        res.writeHead(201, { "content-type": "application/json" });
+        const token = jwt.sign({ userID: logUser.id }, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
+
+        res.writeHead(201, {
+          "content-type": "application/json",
+          "Set-Cookie": `token=${token}; HttpOnly`,
+        });
         res.end(JSON.stringify({ message: "a user was loged", logUser }));
       } catch (error) {
         res.writeHead(400, { "content-type": "application/json" });

@@ -79,7 +79,7 @@ export class SignupForm extends HTMLElement {
               console.error(`unknown error: ${message}`);
             }
           } else {
-            console.log(`the fetch response: ${JSON.stringify(response)}`);
+            console.log(`fetch response: ${JSON.stringify(response)}`);
           }
         })
         .catch((error) => {
@@ -98,7 +98,7 @@ export class SignupForm extends HTMLElement {
       ".container__input-error"
     );
     inputOnError.forEach((input) => {
-      input.classList.remove("container__input");
+      input.classList.remove("container__input-error");
     });
   }
 
@@ -208,11 +208,10 @@ export class SignupForm extends HTMLElement {
           color: #0066ff;
           transition: color .3s ease;
         }
-        }
         .container__error-input{
-          font-size: .8rem;
-          color: red;
-          position: relative;
+          font-size:.8rem;
+          color:red;
+          position:relative;
         }
         .container__input-error:hover,
         .container__input-error:focus{
