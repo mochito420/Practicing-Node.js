@@ -1,10 +1,7 @@
 import url from "url";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../utils/json-middelware.js";
-
-dotenv.config();
 
 export class UsersController {
   static async signupUser(req, res) {

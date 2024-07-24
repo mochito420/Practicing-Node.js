@@ -1,10 +1,12 @@
 import http from "http";
+import dotenv from "dotenv";
 import { authMiddleware } from "./utils/auth-middelware.js";
 import { usersRouter } from "./routes/users-router.js";
 import { signupRouter } from "./routes/signup-router.js";
 import { loginRouter } from "./routes/login-router.js";
 import { profileRouter } from "./routes/profile-router.js";
 import { FileHandler } from "./utils/file-handler.js";
+dotenv.config()
 
 const server = http.createServer(async (req, res) => {
   if (req.url.startsWith("/api/users")) {

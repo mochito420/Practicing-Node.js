@@ -1,6 +1,4 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-dotenv.config();
 
 export function authMiddleware(req, res, next) {
   const cookie = req.headers.cookie;
