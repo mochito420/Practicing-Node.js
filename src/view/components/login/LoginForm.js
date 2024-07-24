@@ -52,6 +52,7 @@ export class LoginForm extends HTMLElement {
         method: "POST",
         body: JSON.stringify(loginUserData),
         headers: { "content-type": "application/json" },
+        credentials: "include",
       })
         .then((res) =>
           res.json().then((data) => ({ status: res.status, body: data }))
@@ -70,6 +71,7 @@ export class LoginForm extends HTMLElement {
             }
           } else {
             console.log(`fetch response ${JSON.stringify(response)}`);
+            window.location.href = "/profile";
           }
         })
         .catch((error) => {

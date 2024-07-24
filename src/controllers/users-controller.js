@@ -30,7 +30,7 @@ export class UsersController {
 
         res.writeHead(201, {
           "content-type": "application/json",
-          "Set-Cookie": `token=${token}; HttpOnly`,
+          "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
         });
         res.end(JSON.stringify({ message: "new user was created", newUser }));
       } catch (error) {
@@ -60,7 +60,7 @@ export class UsersController {
 
         res.writeHead(201, {
           "content-type": "application/json",
-          "Set-Cookie": `token=${token}; HttpOnly`,
+          "Set-Cookie": `token=${token}; HttpOnly; Path=/`,
         });
         res.end(JSON.stringify({ message: "a user was loged", logUser }));
       } catch (error) {

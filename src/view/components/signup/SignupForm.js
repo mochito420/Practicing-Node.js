@@ -62,6 +62,7 @@ export class SignupForm extends HTMLElement {
         method: "POST",
         body: JSON.stringify(newUserData),
         headers: { "content-type": "application/json" },
+        credentials: "include",
       })
         .then((res) =>
           res.json().then((data) => ({ status: res.status, body: data }))
@@ -80,6 +81,7 @@ export class SignupForm extends HTMLElement {
             }
           } else {
             console.log(`fetch response: ${JSON.stringify(response)}`);
+            window.location.href = "/profile";
           }
         })
         .catch((error) => {

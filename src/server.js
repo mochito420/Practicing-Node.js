@@ -1,4 +1,5 @@
 import http from "http";
+import { authMiddleware } from "./utils/auth-middelware.js";
 import { usersRouter } from "./routes/users-router.js";
 import { signupRouter } from "./routes/signup-router.js";
 import { loginRouter } from "./routes/login-router.js";
@@ -13,7 +14,9 @@ const server = http.createServer(async (req, res) => {
   } else if (req.url.startsWith("/login")) {
     loginRouter(req, res);
   } else if (req.url.startsWith("/profile")) {
-    profileRouter(req, res);
+    authMiddleware(req, res, () => {
+      profileRouter(req, res);
+    });
   } else {
     FileHandler.serveStaticFile(req, res);
   }
