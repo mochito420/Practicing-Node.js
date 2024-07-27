@@ -86,10 +86,4 @@ export class UsersModel {
       }
     }
   }
-
-  static async logoutUser(req, res) {
-    req.session = null;
-
-    res.serHeader("set-cookie", "sesion=; max-age=0; path=/");
-  }
 }

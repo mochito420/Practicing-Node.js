@@ -1,5 +1,3 @@
-// import { LogoutButton } from "./LogoutButton.js";
-
 export class ProfileCard extends HTMLElement {
   constructor() {
     super();
@@ -12,13 +10,10 @@ export class ProfileCard extends HTMLElement {
 
   async fetchUser() {
     try {
-      const response = await fetch(
-        "http://localhost:9000/api/users/info",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
+      const response = await fetch("http://localhost:9000/api/users/info", {
+        method: "GET",
+        credentials: "include",
+      });
       if (response.ok) {
         const data = await response.json();
         this.render(data.user);

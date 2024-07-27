@@ -93,11 +93,10 @@ export class UsersController {
   }
 
   static async logoutUser(req, res) {
-    const userLogout = UsersModel.logoutUser(req, res);
-
-    res.writeHead(200, { "content-type": "application/json" });
-    res.end(
-      JSON.stringify({ message: "user logout succesfully", user: userLogout })
-    );
+    res.writeHead(200, {
+      "Set-Cookie": "token=; HttpOnly; Max-Age=0",
+      "content-type": "application/json",
+    });
+    res.end(JSON.stringify({ message: "user logout succesfully" }));
   }
 }
