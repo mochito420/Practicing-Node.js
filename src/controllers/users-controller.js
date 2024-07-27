@@ -1,7 +1,7 @@
-import url from "url";
 import jwt from "jsonwebtoken";
 import { UsersModel } from "../model/users-model.js";
 import { jsonMiddelware } from "../utils/json-middelware.js";
+import { parseCookie } from "../utils/cookie-parser.js";
 
 export class UsersController {
   static async signupUser(req, res) {
@@ -36,6 +36,7 @@ export class UsersController {
       }
     });
   }
+
   static async loginUser(req, res) {
     jsonMiddelware(req, res, async () => {
       const input = req.body;
@@ -66,22 +67,37 @@ export class UsersController {
       }
     });
   }
+
+  static async userInfo(req, res) {
+    const cookie = req.headers.cookie;
+    const cookies = parseCookie(cookie);
+    const token = cookies.token;
+
+    if (!token) {
+      res.writeHead(401, { "content-type": "application/json" });
+      res.end(JSON.stringify({ message: "Auth token not found" }));
+    }
+
+    try {
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const userID = decoded.userID;
+
+      const userInfo = await UsersModel.getUserInfo({ id: userID });
+
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(JSON.stringify({ message: "user was found", user: userInfo }));
+    } catch (error) {
+      res.writeHead(401, { "content-type": "application/json" });
+      res.end(JSON.stringify({ message: "Invalid token" }));
+    }
+  }
+
   static async logoutUser(req, res) {
-    const userLogout = UsersModel(req, res);
+    const userLogout = UsersModel.logoutUser(req, res);
 
     res.writeHead(200, { "content-type": "application/json" });
     res.end(
       JSON.stringify({ message: "user logout succesfully", user: userLogout })
     );
-  }
-  static async userInfo(req, res) {
-    const urlParams = url.parse(req.url, true).query;
-    const { id } = urlParams;
-    console.log(id);
-
-    const userInfoByID = await UsersModel.getUser({ id: id });
-
-    res.writeHead(200, { "content-type": "application/json" });
-    res.end(JSON.stringify({ message: "user was found", user: userInfoByID }));
   }
 }

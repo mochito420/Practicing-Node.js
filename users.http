@@ -1,13 +1,13 @@
-GET http://localhost:9000/api/users/info?id=2531430f-dd7e-4c4b-871b-862c56cbf7a3
+GET http://localhost:9000/api/users/info?id=5ce886e6-6020-4456-83ca-3674b403edde
 
 ###
 POST http://localhost:9000/api/users/signup
 Content-Type: application/json
 
 {   
-    "fullname": "John Doe",
+    "fullname": "Ricardo Leiva",
     "password": "123456",
-    "username": "johndoe"
+    "username": "ricardo2002"
 }
 
 ###
@@ -15,6 +15,6 @@ POST http://localhost:9000/api/users/login
 Content-Type: application/application/json
 
 {
-    "username": "janede",
+    "username": "johndoe",
     "password": "123456"
 }

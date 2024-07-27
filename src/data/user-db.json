@@ -15,6 +15,22 @@
       "id": "5ce886e6-6020-4456-83ca-3674b403edde",
       "createAdd": "2024-07-24",
       "profilepic": "https://avatar.iran.liara.run/public"
+    },
+    {
+      "fullname": "El Mas Capo",
+      "username": "capo1020",
+      "password": "$2b$10$gnauwea89NAOhJVhJ6J2LuRLeNXR29CLXRR4frANeR7DVVeUTWoaK",
+      "id": "c21917ee-5092-4d9c-8981-2e57777795d3",
+      "createAdd": "2024-07-27",
+      "profilepic": "https://avatar.iran.liara.run/public"
+    },
+    {
+      "fullname": "Ricardo Leiva",
+      "username": "ricardo2002",
+      "password": "$2b$10$0cLYSg0rgtmxHz0AlIO7Auk1Svx5pXoV4DtANST7kP06OJnXT3aaK",
+      "id": "111b1dba-8873-4623-b042-16a8130afb91",
+      "createAdd": "2024-07-27",
+      "profilepic": "https://avatar.iran.liara.run/public"
     }
   ]
 }

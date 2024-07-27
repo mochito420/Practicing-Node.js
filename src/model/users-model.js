@@ -32,19 +32,22 @@ export class UsersModel {
       const saltRounds = 10;
       const hashedPassword = await bcry.hash(input.password, saltRounds);
 
-      dataBase.users.push({
+      const newUser = {
         fullname: input.fullname,
         username: input.username,
         password: hashedPassword,
         id: uuidv4(),
         createAdd: new Date().toISOString().split("T")[0],
         profilepic: profilePic,
-      });
+      };
 
+      dataBase.users.push(newUser);
       await updateDatabase(dataBase);
+
+      return newUser;
     }
-    return { input };
   }
+
   static async loginUser({ input }) {
     const dataBase = await checkDatabase();
 
@@ -65,25 +68,28 @@ export class UsersModel {
       if (!matchPassword) {
         throw new Error("invalid password");
       }
+      
+      return matchUser;
     }
-    return { input };
   }
-  static async logoutUser(req, res) {
-    req.session = null;
 
-    res.serHeader("set-cookie", "sesion=; max-age=0; path=/")
-  }
-  static async getUser({ id }) {
+  static async getUserInfo({ id }) {
     const dataBase = await checkDatabase();
 
     if (dataBase.users) {
-      const userInfoByID = dataBase.users.find((user) => user.id === id);
+      const userInfo = dataBase.users.find((user) => user.id === id);
 
-      if (!userInfoByID) {
+      if (!userInfo) {
         return `user whit ID: ${id} was not found`;
       } else {
-        return userInfoByID;
+        return userInfo;
       }
     }
+  }
+
+  static async logoutUser(req, res) {
+    req.session = null;
+
+    res.serHeader("set-cookie", "sesion=; max-age=0; path=/");
   }
 }

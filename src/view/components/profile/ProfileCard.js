@@ -1,3 +1,5 @@
+// import { LogoutButton } from "./LogoutButton.js";
+
 export class ProfileCard extends HTMLElement {
   constructor() {
     super();
@@ -5,22 +7,23 @@ export class ProfileCard extends HTMLElement {
   }
 
   connectedCallback() {
-    // this.render();
     this.fetchUser();
   }
 
   async fetchUser() {
     try {
       const response = await fetch(
-        "http://localhost:9000/api/users/info?id=2531430f-dd7e-4c4b-871b-862c56cbf7a3",
-        { method: "GET" }
+        "http://localhost:9000/api/users/info",
+        {
+          method: "GET",
+          credentials: "include",
+        }
       );
-
       if (response.ok) {
         const data = await response.json();
         this.render(data.user);
       } else {
-        console.error("failed fetching");
+        console.error(`fail fetching`);
       }
     } catch (error) {
       console.error(`Error: ${error}`);
@@ -31,7 +34,9 @@ export class ProfileCard extends HTMLElement {
     this.shadowRoot.innerHTML = /*html*/ `
         <style>${this.styles()}</style>
         <div class='container'>
-          <picture><img src="${user.profilepic}" class="container__img"></picture>
+          <picture>
+            <img src="${user.profilepic}" class="container__img">
+          </picture>
           <h1 class="container__h1">${user.fullname}</h1>
           <p class="container__p">${user.username}</p>
         </div>
@@ -63,6 +68,7 @@ export class ProfileCard extends HTMLElement {
       margin: auto;
     }
     .container__h1{
+      text-align:center;
       margin: 0;
       padding: 10px 10px 0px 10px;
       font-size: 1rem;
